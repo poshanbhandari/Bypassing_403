@@ -13,38 +13,37 @@ This location could be the actual address of the application behind the firewall
 
 ### Change the letter case
 
-/admin -> 403 Forbidden
-/AdMiN -> 200 OK
+- /admin -> 403 Forbidden
+- /AdMiN -> 200 OK
 
 ### Use the alternate HTTP Versions
 
-HTTP/0.9
-HTTP/1.1
-HTTP/3
+- HTTP/0.9
+- HTTP/1.1
+- HTTP/3
 
 ### Use HTTP Method Fuzzing 𝐇𝐓𝐓𝐏 𝐌𝐞𝐭𝐡𝐨𝐝 𝐅𝐮𝐳𝐳𝐢𝐧𝐠
 
-GET /admin HTTP/1.1 -> 403 Forbidden
-POST /admin HTTP/1.1 -> 403 Forbidden
-PUT /admin HTTP/1.1 -> 403 Forbidden
-PATCH /admin HTTP/1.1 -> 200 OK
+- GET /admin HTTP/1.1 -> 403 Forbidden
+- POST /admin HTTP/1.1 -> 403 Forbidden
+- PUT /admin HTTP/1.1 -> 403 Forbidden
+- PATCH /admin HTTP/1.1 -> 200 OK
 
 ### User- Agent Fuzzing 
 
-GET /admin HTTP/1.1
-Host: target
-User-Agent: <INTRUDER_INJECTION>
+- GET /admin HTTP/1.1
+- Host: target
+- User-Agent: <INTRUDER_INJECTION>
 
 ### Do Path Fuzzing
 
 Trick the URL parser into thinking you are trying to access another page (one that should not be protected
 
-target[.]com/admin/?
-target[.]com//admin//
-target[.]com///admin///
+- target[.]com/admin/?
+- target[.]com//admin//
+- target[.]com///admin///
 
 ### HTTP Header Fuzzing
 
-Lastly but not least. It involves adding headers such as HTTP-X-FORWARDED-FOR-IP to the request. 
-
+Last but not least. This method involves adding headers such as HTTP-X-FORWARDED-FOR-IP to the request. 
 Based on how the application/server is configured, it might interpret the request as coming from localhost and disable some of the security measures as it implies this is a safe place
