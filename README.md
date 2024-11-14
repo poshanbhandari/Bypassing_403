@@ -1,6 +1,6 @@
 # Bypassing_403
 
-## If you stumbled upon a "403 Forbidden" page .Here are some things 
+## If you stumbled upon a "403 Forbidden" page .Here are some methods to bypass it
 
 ### Remove the host header
 
